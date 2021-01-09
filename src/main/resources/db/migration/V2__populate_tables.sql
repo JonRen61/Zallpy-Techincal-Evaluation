@@ -1,5 +1,3 @@
-use appDatabase;
-
 INSERT INTO user values(null, 'Administrador');
 INSERT INTO user values(null, 'Programador 1');
 INSERT INTO user values(null, 'Programador 2');

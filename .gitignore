@@ -9,6 +9,7 @@ mvnw*
 .classpath
 .project
 .settings*
+/database
 
 ### VS Code ###
 .vscode/

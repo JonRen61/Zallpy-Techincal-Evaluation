@@ -1,6 +1,2 @@
-CREATE SCHEMA appDatabase;
-
-use appDatabase;
-
 CREATE TABLE user (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(100), PRIMARY KEY(id));
 CREATE TABLE project (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(100), appointed_hours INT, PRIMARY KEY(id));

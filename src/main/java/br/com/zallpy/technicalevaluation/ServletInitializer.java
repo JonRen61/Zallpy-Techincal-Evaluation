@@ -1,4 +1,4 @@
-package br.com.zallpy.technicalevaluation.standalone;
+package br.com.zallpy.technicalevaluation;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
