@@ -12,7 +12,7 @@ import br.com.zallpy.technicalevaluation.service.ProjectService;
 
 @RestController
 @RequestMapping(value = "/projects")
-public class ProjectsController {
+public class ProjectController {
 
 	@Autowired
 	private ProjectService projectService;

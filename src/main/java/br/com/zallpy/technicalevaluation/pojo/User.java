@@ -4,21 +4,20 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
-public class Project {
+public class User {
 
 	@Id
 	private int id;
 	private String name;
-	private int appointed_hours;
 
-	@JsonIgnore
-	@ManyToMany(mappedBy = "projects")
-	private List<User> user;
+	@ManyToMany
+	@JoinTable(name = "user_project", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
+	private List<Project> projects;
 
 	public int getId() {
 		return id;
@@ -36,12 +35,12 @@ public class Project {
 		this.name = name;
 	}
 
-	public int getAppointed_hours() {
-		return appointed_hours;
+	public List<Project> getProjects() {
+		return projects;
 	}
 
-	public void setAppointed_hours(int appointed_hours) {
-		this.appointed_hours = appointed_hours;
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 
 }
