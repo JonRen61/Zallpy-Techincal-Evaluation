@@ -13,3 +13,6 @@ mvnw*
 
 ### VS Code ###
 .vscode/
+technical-evaluation/
+_*
+anonymous-cli-metrics.json

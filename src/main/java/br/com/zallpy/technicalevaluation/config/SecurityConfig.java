@@ -31,8 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(PUBLIC_MATCHERS).permitAll().anyRequest().authenticated();
 
 		http.formLogin().passwordParameter("login_password").usernameParameter("login_email")
-				.loginProcessingUrl("/executeLogin").failureUrl("/?error=true").defaultSuccessUrl("/home")
-				.loginPage("/").permitAll().and().exceptionHandling().accessDeniedPage("/denied").and().csrf()
+				.loginProcessingUrl("/executeLogin").failureUrl("/index.html?error=true").defaultSuccessUrl("/home")
+				.loginPage("/index.html").permitAll().and().exceptionHandling().accessDeniedPage("/denied").and().csrf()
 				.disable();
 
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
