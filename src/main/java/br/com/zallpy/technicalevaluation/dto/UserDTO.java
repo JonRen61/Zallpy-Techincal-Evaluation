@@ -2,8 +2,8 @@ package br.com.zallpy.technicalevaluation.dto;
 
 import java.util.List;
 
-import br.com.zallpy.technicalevaluation.pojo.Project;
-import br.com.zallpy.technicalevaluation.pojo.User;
+import br.com.zallpy.technicalevaluation.model.Project;
+import br.com.zallpy.technicalevaluation.model.User;
 
 public class UserDTO {
 

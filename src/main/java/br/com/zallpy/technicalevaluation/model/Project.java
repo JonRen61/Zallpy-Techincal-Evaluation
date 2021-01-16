@@ -1,4 +1,4 @@
-package br.com.zallpy.technicalevaluation.pojo;
+package br.com.zallpy.technicalevaluation.model;
 
 import java.util.List;
 

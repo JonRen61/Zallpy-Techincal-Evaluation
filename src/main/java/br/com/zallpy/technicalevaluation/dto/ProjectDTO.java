@@ -1,6 +1,6 @@
 package br.com.zallpy.technicalevaluation.dto;
 
-import br.com.zallpy.technicalevaluation.pojo.Project;
+import br.com.zallpy.technicalevaluation.model.Project;
 
 public class ProjectDTO {
 
