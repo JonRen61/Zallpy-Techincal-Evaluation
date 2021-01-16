@@ -1,20 +1,12 @@
 package br.com.zallpy.technicalevaluation.model;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
-import br.com.zallpy.technicalevaluation.model.enums.Profile;
 
 @Entity
 public class User {
@@ -24,10 +16,6 @@ public class User {
     private String name;
     private String email;
     private String password;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "profiles")
-    private Set<Integer> profiles = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "user_project", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
@@ -63,14 +51,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Set<Profile> getProfiles() {
-        return profiles.stream().map(Profile::getProfileType).collect(Collectors.toSet());
-    }
-
-    public void addProfile(Profile profile) {
-        profiles.add(profile.getId());
     }
 
     public List<Project> getProjects() {

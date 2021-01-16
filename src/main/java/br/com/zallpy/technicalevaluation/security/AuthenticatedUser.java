@@ -1,14 +1,9 @@
 package br.com.zallpy.technicalevaluation.security;
 
 import java.util.Collection;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import br.com.zallpy.technicalevaluation.model.enums.Profile;
 
 public class AuthenticatedUser implements UserDetails {
 
@@ -22,12 +17,10 @@ public class AuthenticatedUser implements UserDetails {
     public AuthenticatedUser() {
     }
 
-    public AuthenticatedUser(Integer id, String email, String password, Set<Profile> profiles) {
+    public AuthenticatedUser(Integer id, String email, String password) {
         this.id = id;
         this.email = email;
         this.password = password;
-        this.authorities = profiles.stream().map(p -> new SimpleGrantedAuthority(p.getDescription()))
-                .collect(Collectors.toList());
     }
 
     public Integer getId() {
