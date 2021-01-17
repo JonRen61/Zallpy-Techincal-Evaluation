@@ -15,7 +15,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
+import br.com.zallpy.technicalevaluation.dto.AuthenticatedUserDTO;
 import br.com.zallpy.technicalevaluation.model.CredentialsDTO;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -44,9 +46,11 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
-            Authentication auth) throws IOException, ServletException {
-        res.addHeader("Authorization", "Bearer " + jwtUtil.generateToken(((AuthenticatedUser) auth.getPrincipal()).getUsername()));
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication auth) throws IOException, ServletException {
+        AuthenticatedUser authenticatedUser = (AuthenticatedUser) auth.getPrincipal();
+        authenticatedUser.setToken(jwtUtil.generateToken(authenticatedUser.getUsername()));
+        AuthenticatedUserDTO authenticatedUserDTO = new AuthenticatedUserDTO(authenticatedUser);
+        response.getWriter().write(new Gson().toJson(authenticatedUserDTO));
     }
 
 }

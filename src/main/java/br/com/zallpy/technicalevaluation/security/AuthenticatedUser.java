@@ -12,6 +12,7 @@ public class AuthenticatedUser implements UserDetails {
     private Integer id;
     private String email;
     private String password;
+    private String token;
     private Collection<? extends GrantedAuthority> authorities;
 
     public AuthenticatedUser() {
@@ -25,6 +26,14 @@ public class AuthenticatedUser implements UserDetails {
 
     public Integer getId() {
         return id;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     @Override
