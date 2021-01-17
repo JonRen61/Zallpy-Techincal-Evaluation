@@ -16,6 +16,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import br.com.zallpy.technicalevaluation.security.JWTAuthenticationFilter;
 import br.com.zallpy.technicalevaluation.security.JWTUtil;
+import br.com.zallpy.technicalevaluation.security.JwtAuthorizationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -40,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(PUBLIC_MATCHERS).permitAll().anyRequest().authenticated();
 
         http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+        http.addFilter(new JwtAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
+
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
     }
