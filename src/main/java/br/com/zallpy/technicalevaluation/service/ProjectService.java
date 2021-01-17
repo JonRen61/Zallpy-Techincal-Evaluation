@@ -1,5 +1,6 @@
 package br.com.zallpy.technicalevaluation.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,11 +13,11 @@ import br.com.zallpy.technicalevaluation.repository.ProjectRepository;
 @Service
 public class ProjectService {
 
-	@Autowired
-	private ProjectRepository projectRepository;
+    @Autowired
+    private ProjectRepository projectRepository;
 
-	public List<ProjectDTO> list() {
-		return projectRepository.findAll().stream().map(ProjectDTO::new).collect(Collectors.toList());
-	}
+    public List<ProjectDTO> listByUserId(int userId) {
+        return projectRepository.findByUserId(userId).orElse(Collections.emptyList()).stream().map(ProjectDTO::new).collect(Collectors.toList());
+    }
 
 }

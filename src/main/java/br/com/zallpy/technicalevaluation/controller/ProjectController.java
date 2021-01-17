@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,12 +15,12 @@ import br.com.zallpy.technicalevaluation.service.ProjectService;
 @RequestMapping(value = "/projects")
 public class ProjectController {
 
-	@Autowired
-	private ProjectService projectService;
+    @Autowired
+    private ProjectService projectService;
 
-	@GetMapping("/list")
-	public List<ProjectDTO> listProjects() {
-		return projectService.list();
-	}
+    @GetMapping("/list/{userId}")
+    public List<ProjectDTO> listProjects(@PathVariable int userId) {
+        return projectService.listByUserId(userId);
+    }
 
 }
