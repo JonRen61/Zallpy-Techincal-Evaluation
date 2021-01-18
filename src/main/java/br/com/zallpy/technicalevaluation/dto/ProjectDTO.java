@@ -22,16 +22,32 @@ public class ProjectDTO {
         return project.getId();
     }
 
+    public void setId(int id) {
+        project.setId(id);
+    }
+
     public String getName() {
         return project.getName();
+    }
+
+    public void setName(String name) {
+        project.setName(name);
     }
 
     public Date getRegisterDate() {
         return project.getRegisterDate();
     }
 
+    public void setRegisterDate(Date registerDate) {
+        project.setRegisterDate(registerDate);
+    }
+
     public int getAppointedHours() {
         return project.getAppointedHours();
+    }
+
+    public void setAppointedHours(int appointedHours) {
+        project.setAppointedHours(appointedHours);
     }
 
     @JsonIgnore
