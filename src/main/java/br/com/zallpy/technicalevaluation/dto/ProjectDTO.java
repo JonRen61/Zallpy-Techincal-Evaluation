@@ -1,5 +1,7 @@
 package br.com.zallpy.technicalevaluation.dto;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.zallpy.technicalevaluation.model.Project;
@@ -7,6 +9,10 @@ import br.com.zallpy.technicalevaluation.model.Project;
 public class ProjectDTO {
 
     private Project project;
+
+    public ProjectDTO() {
+        this.project = new Project();
+    }
 
     public ProjectDTO(Project project) {
         this.project = project;
@@ -18,6 +24,10 @@ public class ProjectDTO {
 
     public String getName() {
         return project.getName();
+    }
+
+    public Date getRegisterDate() {
+        return project.getRegisterDate();
     }
 
     public int getAppointedHours() {

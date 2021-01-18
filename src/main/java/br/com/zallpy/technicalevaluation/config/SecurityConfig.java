@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     private static final String[] PUBLIC_MATCHERS = { "/console/**" };
-    private static final String[] PUBLIC_MATCHERS_GET = { "/projects/**, /users/**" };
+    private static final String[] PRIVATE_MATCHERS = { "/projects/**, /users/**" };
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable();
         http.headers().frameOptions().disable();
 
-        http.authorizeRequests().antMatchers(PUBLIC_MATCHERS_GET).permitAll()
+        http.authorizeRequests().antMatchers(PRIVATE_MATCHERS).permitAll()
                 .antMatchers(PUBLIC_MATCHERS).permitAll().anyRequest().authenticated();
 
         http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));

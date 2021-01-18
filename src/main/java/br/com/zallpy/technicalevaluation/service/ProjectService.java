@@ -24,4 +24,8 @@ public class ProjectService {
         projectRepository.save(projectDTO.getProject());
     }
 
+    public ProjectDTO findById(int projectId) {
+        return new ProjectDTO(projectRepository.findById(projectId).orElse(null));
+    }
+
 }
