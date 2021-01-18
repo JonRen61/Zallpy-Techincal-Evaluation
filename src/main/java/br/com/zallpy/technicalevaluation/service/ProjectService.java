@@ -20,4 +20,8 @@ public class ProjectService {
         return projectRepository.findByUserId(userId).orElse(Collections.emptyList()).stream().map(ProjectDTO::new).collect(Collectors.toList());
     }
 
+    public void update(ProjectDTO projectDTO) {
+        projectRepository.save(projectDTO.getProject());
+    }
+
 }

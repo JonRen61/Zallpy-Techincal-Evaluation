@@ -14,7 +14,7 @@ public class Project {
 	@Id
 	private int id;
 	private String name;
-	private int appointed_hours;
+	private int appointedHours;
 
 	@JsonIgnore
 	@ManyToMany(mappedBy = "projects")
@@ -36,12 +36,12 @@ public class Project {
 		this.name = name;
 	}
 
-	public int getAppointed_hours() {
-		return appointed_hours;
+	public int getAppointedHours() {
+		return appointedHours;
 	}
 
-	public void setAppointed_hours(int appointed_hours) {
-		this.appointed_hours = appointed_hours;
+	public void setAppointedHours(int appointedHours) {
+		this.appointedHours = appointedHours;
 	}
 
 }
